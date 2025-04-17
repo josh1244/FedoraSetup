@@ -1,6 +1,6 @@
 # 🐧 Fedora Setup Guide
 
-![Fedora Setup Banner](https://via.placeholder.com/1200x300.png?text=Fedora+Setup+Guide)  
+![Fedora Setup Banner](https://placehold.co/1200x300.png?text=Fedora+Setup+Guide)  
 _A comprehensive guide on setting up Fedora to my liking._
 
 ---
