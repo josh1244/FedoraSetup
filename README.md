@@ -1,6 +1,19 @@
 # 🐧 Fedora Setup Guide
 
-This guide outlines the steps to set up your Fedora system with custom configurations and enhancements.
+![Fedora Setup Banner](https://via.placeholder.com/1200x300.png?text=Fedora+Setup+Guide)  
+_A comprehensive guide on setting up Fedora to my liking._
+
+---
+
+## 📖 Table of Contents
+
+1. [System Updates and Repositories](#-1-system-updates-and-repositories)
+2. [Firmware Updates](#-2-firmware-updates)
+3. [Media and Hardware Configuration](#-3-media-and-hardware-configuration)
+4. [Desktop Environment Customization](#-4-desktop-environment-customization)
+5. [Additional Configurations](#-5-additional-configurations)
+6. [Things to Look For](#-6-things-to-look-for)
+7. [Automated Setup Script](#-automated-setup-script)
 
 ---
 
@@ -176,3 +189,58 @@ This can reduce boot time by ~15-20 seconds.
 ## 🔍 6. Things to Look For
 
 - Equivalent of Windows `Win + .` for symbols.
+
+---
+
+## 🛠️ Automated Setup Script
+
+To automate the setup process, you can use the provided Bash script. Follow these steps:
+
+### 📄 Script Location
+
+The script is located in the repository as `setup_fedora.sh`.
+
+### 🚀 How to Use
+
+1. **Download or Clone the Repository**:
+
+   ```bash
+   git clone <repository-url>
+   cd FedoraSetup
+   ```
+
+2. **Make the Script Executable**:
+
+   ```bash
+   chmod +x setup_fedora.sh
+   ```
+
+3. **Run the Script**:
+   ```bash
+   ./setup_fedora.sh
+   ```
+
+### ⚠️ Notes
+
+- Some steps in the script require manual interaction (e.g., enabling OpenH264 in Firefox, configuring GNOME settings).
+- Ensure you have `sudo` privileges before running the script.
+- Review the script to ensure it aligns with your specific setup needs.
+
+---
+
+```bash
+# Example: Running the script
+./setup_fedora.sh
+```
+
+---
+
+## 📜 Additional Information
+
+- **Fedora Version**: This guide is optimized for Fedora 38 and later.
+- **Contributions**: Feel free to submit pull requests or issues to improve this guide.
+- **License**: This guide is licensed under the MIT License.
+
+---
+
+Happy configuring your Fedora system! 🎉
