@@ -12,8 +12,7 @@ _A comprehensive guide on setting up Fedora to my liking._
 3. [Media and Hardware Configuration](#-3-media-and-hardware-configuration)
 4. [Desktop Environment Customization](#-4-desktop-environment-customization)
 5. [Additional Configurations](#-5-additional-configurations)
-6. [Things to Look For](#-6-things-to-look-for)
-7. [Automated Setup Script](#-automated-setup-script)
+6. [Automated Setup Script](#-automated-setup-script)
 
 ---
 
@@ -32,6 +31,14 @@ sudo dnf -y update
 ```bash
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+```
+
+### 🖥️ Install Zen Browser
+
+Install the Zen browser using Flatpak:
+
+```bash
+flatpak install flathub app.zen_browser.zen
 ```
 
 ---
@@ -138,6 +145,13 @@ sudo dnf install gnome-extensions-app gnome-shell-extension-blur-my-shell gnome-
 - [Vitals](https://extensions.gnome.org/extension/1460/vitals/)
 - [Gesture Improvements](https://extensions.gnome.org/extension/4245/gesture-improvements/)
 - [Quick Settings Tweaks](https://github.com/qwreey/quick-settings-tweaks)
+- [Touchpad Gesture Customization](https://extensions.gnome.org/extension/7850/touchpad-gesture-customization/)
+
+**Configure Blur My Shell:**
+
+1. Open the **Blur My Shell** settings.
+2. In **Applications**, Add zen to the whitelist.
+3. Disable the **Opaque on Focus** option.
 
 ---
 
@@ -184,11 +198,13 @@ sudo systemctl disable NetworkManager-wait-online.service
 
 This can reduce boot time by ~15-20 seconds.
 
----
+### 🖼️ HEIF Image Support
 
-## 🔍 6. Things to Look For
+Install tools for HEIF image handling:
 
-- Equivalent of Windows `Win + .` for symbols.
+```bash
+sudo dnf install -y libheif-tools
+```
 
 ---
 

@@ -13,6 +13,9 @@ sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-rel
     https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
+echo "Installing Zen Browser..."
+flatpak install -y flathub app.zen_browser.zen
+
 # 2. Firmware Updates
 echo "Updating firmware..."
 sudo fwupdmgr refresh --force
@@ -60,10 +63,17 @@ echo "Reminder: Enable Night Light in 'Settings > Night Light' and set the color
 echo "Installing GNOME extensions..."
 sudo dnf install -y gnome-extensions-app gnome-shell-extension-blur-my-shell gnome-shell-extension-just-perfection gnome-shell-extension-caffeine
 
+echo "Configuring Blur My Shell..."
+echo "Reminder: Open Blur My Shell settings, add 'zen' to the whitelist, and disable 'Opaque on Focus'."
+
+echo "Installing HEIF image support..."
+sudo dnf install -y libheif-tools
+
 echo "Reminder: Install additional GNOME extensions manually:"
 echo "- Vitals: https://extensions.gnome.org/extension/1460/vitals/"
 echo "- Gesture Improvements: https://extensions.gnome.org/extension/4245/gesture-improvements/"
 echo "- Quick Settings Tweaks: https://github.com/qwreey/quick-settings-tweaks"
+echo "- Touchpad Gesture Customization: https://extensions.gnome.org/extension/7850/touchpad-gesture-customization/"
 
 # 5. Additional Configurations
 echo "Setting hostname..."
@@ -85,8 +95,5 @@ sudo timedatectl set-local-rtc 0
 
 echo "Disabling NetworkManager-wait-online.service to reduce boot time..."
 sudo systemctl disable NetworkManager-wait-online.service
-
-# 6. Things to Look For
-echo "Reminder: Find the equivalent of Windows 'Win + .' for symbols."
 
 echo "Fedora setup complete! Some steps require manual configuration as noted."
