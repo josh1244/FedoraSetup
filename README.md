@@ -93,6 +93,16 @@ cd Elegant-grub2-themes
 sudo ./install.sh -t wave -c light -s 2k -l system -b
 ```
 
+### 🎨 Bibata Cursor Theme
+
+Install the Bibata cursor theme:
+
+```bash
+sudo dnf copr enable peterwu/rendezvous
+sudo dnf install bibata-cursor-themes
+```
+Set the Bibata cursor theme in 'Tweaks > Appearance > Cursor'.
+
 ### 🛠️ Gnome Tweaks
 
 Install Gnome Tweaks:

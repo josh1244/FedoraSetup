@@ -69,6 +69,12 @@ echo "Reminder: Open Blur My Shell settings, add 'zen' to the whitelist, and dis
 echo "Installing HEIF image support..."
 sudo dnf install -y libheif-tools
 
+echo "Installing Bibata cursor theme..."
+sudo dnf copr enable peterwu/rendezvous -y
+sudo dnf install -y bibata-cursor-themes
+
+echo "Reminder: Set the Bibata cursor theme in 'Tweaks > Appearance > Cursor'."
+
 echo "Reminder: Install additional GNOME extensions manually:"
 echo "- Vitals: https://extensions.gnome.org/extension/1460/vitals/"
 echo "- Gesture Improvements: https://extensions.gnome.org/extension/4245/gesture-improvements/"
