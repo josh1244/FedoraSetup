@@ -142,6 +142,86 @@ sudo rm /etc/xdg/autostart/org.gnome.Software.desktop
 1. Open `Settings > Night Light`.
 2. Enable Night Light and set **Color Temperature** to `1/4`.
 
+#### 🖱️ Configure Terminal Copy and Paste
+
+To configure `Ctrl+C` and `Ctrl+V` for copy and paste in the terminal:
+
+1. Open the terminal settings for **Ptyxis/Terminal**.
+2. Navigate to the **Shortcuts** section.
+3. Set the following keybindings:
+   - **Copy**: `Ctrl+C`
+   - **Paste**: `Ctrl+V`
+4. Save the changes and restart the terminal if necessary.
+
+## 🖥️ 5. Dotfiles and Configurations
+
+### 🐚 Setting up Zsh and Oh My Zsh
+
+Install and configure Zsh as the default shell:
+
+```bash
+# Install Zsh
+sudo dnf install -y zsh
+
+# Set Zsh as the default shell
+chsh -s $(which zsh)
+### 🚀 Install Oh My Zsh and Plugins
+
+#### Install Oh My Zsh
+
+```bash
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+   echo "Installing Oh My Zsh..."
+   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+else
+   echo "Oh My Zsh is already installed."
+fi
+```
+
+#### Add Plugins
+
+- **zsh-syntax-highlighting**: Provides syntax highlighting for commands.
+  
+  ```bash
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+  ```
+
+- **zsh-autosuggestions**: Suggests commands as you type based on history and completions.
+
+  ```bash
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+  ```
+
+#### Install Spaceship Prompt Theme
+
+- Clone the repository to the Zsh custom theme directory:
+
+  ```bash
+  git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+  ```
+
+- Create a symlink for the theme:
+
+  ```bash
+  ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+  ```s
+
+### 📂 Setup Dotfiles and `.config` Directory
+
+Replace the existing `.config` directory and set up symlinks for dotfiles:
+
+```bash
+# Remove existing .config directory and replace it with a symlink
+rm -rf ~/.config
+ln -sf /home/josh/repos/FedoraSetup/config ~/.config
+
+# Symlink other dotfiles
+ln -sf /home/josh/repos/FedoraSetup/zshrc ~/.zshrc
+ln -sf /home/josh/repos/FedoraSetup/zshrc.pre-oh-my-zsh ~/.zshrc.pre-oh-my-zsh
+
+echo "Zsh, Oh My Zsh, dotfiles, and .config directory set up successfully!"
+```
+
 ### 🧩 Gnome Extensions
 
 Install extensions:
