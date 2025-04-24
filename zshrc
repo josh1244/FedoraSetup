@@ -1,6 +1,19 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
+# Increase speed (this can cut the load time in half)
+DISABLE_AUTO_UPDATE="true"
+DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_COMPFIX="true"
+
+# Instead of rebuilding the completion cache every time, we only do it once a day:
+autoload -Uz compinit
+if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
+    compinit
+else
+    compinit -C
+fi
+
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -73,8 +86,8 @@ ENABLE_CORRECTION="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  zsh-syntax-highlighting
   zsh-autosuggestions
+  zsh-syntax-highlighting  # Always last!
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -82,10 +95,22 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#663399,standout"
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
+ZSH_AUTOSUGGEST_USE_ASYNC=1
 
-
-SPACESHIP_PROMPT_ADD_NEWLINE="true"
+SPACESHIP_PROMPT_ASYNC=true
+SPACESHIP_PROMPT_ADD_NEWLINE=true
 SPACESHIP_CHAR_SYMBOL="⚡"
+
+# Only load what you actually use
+SPACESHIP_PROMPT_ORDER=(
+    time
+    user
+    dir
+    git
+    line_sep
+    char
+)
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
