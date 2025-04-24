@@ -117,14 +117,6 @@ sudo hostnamectl set-hostname joshs-framework
 echo "Removing default Firefox start page..."
 sudo rm -f /usr/lib64/firefox/browser/defaults/preferences/firefox-redhat-default-prefs.js
 
-echo "Configuring custom DNS servers..."
-sudo mkdir -p /etc/systemd/resolved.conf.d
-cat <<EOF | sudo tee /etc/systemd/resolved.conf.d/99-dns-over-tls.conf
-[Resolve]
-DNS=1.1.1.2#security.cloudflare-dns.com 1.0.0.2#security.cloudflare-dns.com 2606:4700:4700::1112#security.cloudflare-dns.com 2606:4700:4700::1002#security.cloudflare-dns.com
-DNSOverTLS=yes
-EOF
-
 echo "Setting UTC time..."
 sudo timedatectl set-local-rtc 0
 

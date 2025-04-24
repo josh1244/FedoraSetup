@@ -259,21 +259,6 @@ hostnamectl set-hostname joshs-framework
 sudo rm -f /usr/lib64/firefox/browser/defaults/preferences/firefox-redhat-default-prefs.js
 ```
 
-### 🌍 Custom DNS Servers
-
-```bash
-sudo mkdir -p '/etc/systemd/resolved.conf.d'
-sudo nano '/etc/systemd/resolved.conf.d/99-dns-over-tls.conf'
-```
-
-Add the following:
-
-```
-[Resolve]
-DNS=1.1.1.2#security.cloudflare-dns.com 1.0.0.2#security.cloudflare-dns.com 2606:4700:4700::1112#security.cloudflare-dns.com 2606:4700:4700::1002#security.cloudflare-dns.com
-DNSOverTLS=yes
-```
-
 ### 🕒 Set UTC Time
 
 ```bash
