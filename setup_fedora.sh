@@ -123,6 +123,10 @@ sudo timedatectl set-local-rtc 0
 echo "Disabling NetworkManager-wait-online.service to reduce boot time..."
 sudo systemctl disable NetworkManager-wait-online.service
 
+# Backup Solutions
+# Install Pika Backup and Deja Dup Backups for easy graphical backup management
+sudo dnf install pika-backup deja-dup
+
 # Manual Configuration Reminders
 echo "=========================="
 echo "Manual Configuration Reminders:"
@@ -139,5 +143,6 @@ echo "- Vitals: https://extensions.gnome.org/extension/1460/vitals/"
 echo "- Gesture Improvements: https://extensions.gnome.org/extension/4245/gesture-improvements/"
 echo "- Quick Settings Tweaks: https://github.com/qwreey/quick-settings-tweaks"
 echo "- Touchpad Gesture Customization: https://extensions.gnome.org/extension/7850/touchpad-gesture-customization/"
+echo "- Framework Laptop Control: https://github.com/stefanhoelzl/frameworkd"
 
 echo "Fedora setup complete! Some steps require manual configuration as noted."

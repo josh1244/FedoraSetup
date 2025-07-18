@@ -13,7 +13,6 @@ _A comprehensive guide on setting up Fedora to my liking._
 4. [Desktop Environment Customization](#-4-desktop-environment-customization)
 5. [Additional Configurations](#-5-additional-configurations)
 6. [Automated Setup Script](#-automated-setup-script)
-
 ---
 
 ## 📦 1. System Updates and Repositories
@@ -236,6 +235,7 @@ sudo dnf install gnome-extensions-app gnome-shell-extension-blur-my-shell gnome-
 - [Gesture Improvements](https://extensions.gnome.org/extension/4245/gesture-improvements/)
 - [Quick Settings Tweaks](https://github.com/qwreey/quick-settings-tweaks)
 - [Touchpad Gesture Customization](https://extensions.gnome.org/extension/7850/touchpad-gesture-customization/)
+- [Framework Laptop Control] (https://github.com/stefanhoelzl/frameworkd)
 
 **Configure Blur My Shell:**
 
@@ -280,6 +280,23 @@ Install tools for HEIF image handling:
 ```bash
 sudo dnf install -y libheif-tools
 ```
+
+---
+
+## 💾 Backup Solutions
+
+For reliable backups, consider installing one of the following tools:
+
+- **Pika Backup**
+- **Deja Dup Backups**
+
+Install via DNF:
+
+```bash
+sudo dnf install pika-backup deja-dup
+```
+
+Both tools provide easy graphical interfaces for scheduling and managing backups.
 
 ---
 

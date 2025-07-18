@@ -9,9 +9,9 @@ DISABLE_COMPFIX="true"
 # Instead of rebuilding the completion cache every time, we only do it once a day:
 autoload -Uz compinit
 if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
-    compinit
+   compinit
 else
-    compinit -C
+   compinit -C
 fi
 
 # Path to your Oh My Zsh installation.
@@ -52,7 +52,7 @@ ZSH_THEME="spaceship"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-DISABLE_AUTO_TITLE="true"
+#DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
@@ -85,9 +85,9 @@ ENABLE_CORRECTION="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
-  zsh-autosuggestions
-  zsh-syntax-highlighting  # Always last!
+ git
+ zsh-autosuggestions
+ zsh-syntax-highlighting  # Always last!
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -104,12 +104,12 @@ SPACESHIP_CHAR_SYMBOL="⚡"
 
 # Only load what you actually use
 SPACESHIP_PROMPT_ORDER=(
-    time
-    user
-    dir
-    git
-    line_sep
-    char
+   time
+   user
+   dir
+   git
+   line_sep
+   char
 )
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -138,3 +138,5 @@ SPACESHIP_PROMPT_ORDER=(
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# eval "$(starship init zsh)"
