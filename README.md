@@ -12,7 +12,7 @@ _A comprehensive guide on setting up Fedora to my liking._
 3. [Media and Hardware Configuration](#-3-media-and-hardware-configuration)
 4. [Desktop Environment Customization](#-4-desktop-environment-customization)
 5. [Additional Configurations](#-5-additional-configurations)
-6. [Automated Setup Script](#-automated-setup-script)
+
 ---
 
 ## 📦 1. System Updates and Repositories
@@ -100,6 +100,7 @@ Install the Bibata cursor theme:
 sudo dnf copr enable peterwu/rendezvous
 sudo dnf install bibata-cursor-themes
 ```
+
 Set the Bibata cursor theme in 'Tweaks > Appearance > Cursor'.
 
 ### 🛠️ Gnome Tweaks
@@ -158,7 +159,7 @@ To configure `Ctrl+C` and `Ctrl+V` for copy and paste in the terminal:
 
 Install and configure Zsh as the default shell:
 
-```bash
+````bash
 # Install Zsh
 sudo dnf install -y zsh
 
@@ -175,12 +176,12 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 else
    echo "Oh My Zsh is already installed."
 fi
-```
+````
 
 #### Add Plugins
 
 - **zsh-syntax-highlighting**: Provides syntax highlighting for commands.
-  
+
   ```bash
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
   ```
@@ -201,9 +202,10 @@ fi
 
 - Create a symlink for the theme:
 
-  ```bash
+  ````bash
   ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
   ```s
+  ````
 
 ### 📂 Setup Dotfiles and `.config` Directory
 
@@ -297,58 +299,54 @@ sudo dnf install pika-backup deja-dup
 ```
 
 Both tools provide easy graphical interfaces for scheduling and managing backups.
+[---]
 
----
+## 🗂️ Dotfiles Management: Anand Iyer's Simpler Method
 
-## 🛠️ Automated Setup Script
+Inspired by [Anand Iyer's blog post](https://www.anand-iyer.com/blog/2018/a-simpler-way-to-manage-your-dotfiles/), this method uses a bare git repository to manage your dotfiles directly in `$HOME`, avoiding symlinks.
 
-To automate the setup process, you can use the provided Bash script. Follow these steps:
-
-### 📄 Script Location
-
-The script is located in the repository as `setup_fedora.sh`.
-
-### 🚀 How to Use
-
-1. **Download or Clone the Repository**:
-
-   ```bash
-   git clone <repository-url>
-   cd FedoraSetup
-   ```
-
-2. **Make the Script Executable**:
-
-   ```bash
-   chmod +x setup_fedora.sh
-   ```
-
-3. **Run the Script**:
-   ```bash
-   ./setup_fedora.sh
-   ```
-
-### ⚠️ Notes
-
-- Some steps in the script require manual interaction (e.g., enabling OpenH264 in Firefox, configuring GNOME settings).
-- Ensure you have `sudo` privileges before running the script.
-- Review the script to ensure it aligns with your specific setup needs.
-
----
+### 🚀 First Time Setup
 
 ```bash
-# Example: Running the script
-./setup_fedora.sh
+mkdir $HOME/.dotfiles
+git init --bare $HOME/.dotfiles
+```
+
+Add this alias to your `.zshrc` or `.bashrc`:
+
+```bash
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+```
+
+Configure git to hide untracked files and add your remote:
+
+```bash
+dotfiles config --local status.showUntrackedFiles no
+dotfiles remote add origin git@github.com:josh1244/dotfiles.git
+```
+
+Add, commit, and push dotfiles as needed:
+
+```bash
+dotfiles add .tmux.conf
+dotfiles commit -m "Add .tmux.conf"
+dotfiles push
+```
+
+### 🖥️ Setting Up a New Machine
+
+Clone your dotfiles repo as a bare repository:
+
+```bash
+git clone --separate-git-dir=$HOME/.dotfiles git@github.com:josh1244/dotfiles.git ~
+```
+
+If you have existing config files, use a temporary directory:
+
+```bash
+git clone --separate-git-dir=$HOME/.dotfiles git@github.com:josh1244/dotfiles.git tmpdotfiles
+rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/
+rm -r tmpdotfiles
 ```
 
 ---
-
-## 📜 Additional Information
-
-- **Fedora Version**: This guide is optimized for Fedora 38 and later.
-- **Contributions**: Feel free to submit pull requests or issues to improve this guide.
-- **License**: This guide is licensed under the MIT License.
-
----
-
-Happy configuring your Fedora system! 🎉
