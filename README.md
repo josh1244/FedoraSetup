@@ -124,8 +124,9 @@ sudo rm /etc/xdg/autostart/org.gnome.Software.desktop
 2. Add the following custom shortcuts:
    - **Ctrl+Alt+T**: `ptyxis --tab`
    - **Super+Q**: Close Window
-   - **Disable Notification List**: Unbind `vShow the Notification List`.
-   - **Clipboard Indicator Toggle**: `Super+V`.
+   - **Disable Notification List**: Unbind `vShow the Notification List`
+   - **Clipboard Indicator Toggle**: `Super+V`
+   - **Switch windows**: `Alt+Tab` 
 
 #### 🔋 Show Battery Percentage
 
