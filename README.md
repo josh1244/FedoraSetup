@@ -122,7 +122,7 @@ sudo rm /etc/xdg/autostart/org.gnome.Software.desktop
 
 1. Open `Settings > Keyboard > Shortcuts`.
 2. Add the following custom shortcuts:
-   - **Ctrl+Alt+T**: `ptyxis --tab`
+   - **Ctrl+Alt+T**: `ptyxis --new-window`
    - **Super+Q**: Close Window
    - **Disable Notification List**: Unbind `vShow the Notification List`
    - **Clipboard Indicator Toggle**: `Super+V`
